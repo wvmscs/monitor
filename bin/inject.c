@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <tlhelp32.h>
 #include <shlwapi.h>
 #include "../inc/ntapi.h"
+#include "newlocation.h"
 
 #define INJECT_NONE 0
 #define INJECT_CRT  1
@@ -778,7 +779,8 @@ int main()
     if(config_file != NULL) {
         static wchar_t filepath[MAX_PATH_W];
 
-        wsprintfW(filepath, L"C:\\cuckoo_%d.ini", pid);
+        //wsprintfW(filepath, L"C:\\cuckoo_%d.ini", pid);
+        wsprintfW(filepath, CONFIGFNAMEW, pid);
         if(MoveFileW(config_file, filepath) == FALSE) {
             error("[-] Error dropping configuration file: %ld\n",
                 GetLastError());

@@ -864,7 +864,8 @@ void log_init(const char *pipe_name, int track)
 
 #if DEBUG
     char filepath[MAX_PATH];
-    our_snprintf(filepath, MAX_PATH, "C:\\monitor-debug-%d.txt",
+    //our_snprintf(filepath, MAX_PATH, "C:\\monitor-debug-%d.txt",
+    our_snprintf(filepath, MAX_PATH, "C:\\Windows\\Temp\\monitor-debug-%d.txt",
         GetCurrentProcessId());
     pipe("FILE_NEW:%z", filepath);
     wcsncpyA(g_debug_filepath, filepath, MAX_PATH);
